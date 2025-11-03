@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple HTML Page</title>
+  <style>
+    :root{--bg:#f8fafc;--card:#fff;--text:#0f172a;--accent:#0ea5a4}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;background:var(--bg);color:var(--text);line-height:1.5}
+    header{padding:1rem 1.25rem;background:linear-gradient(90deg,#06b6d4, #7dd3fc);color:white}
+    .container{max-width:900px;margin:1.25rem auto;padding:0 1rem}
+    .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(2,6,23,0.06)}
+    h1{margin:0 0 .25rem;font-size:1.5rem}
+    p.lead{margin:0 0 1rem;color:#334155}
+    .row{display:flex;gap:1rem;flex-wrap:wrap}
+    .col{flex:1 1 220px}
+    button{background:var(--accent);border:0;color:white;padding:.6rem .9rem;border-radius:8px;cursor:pointer}
+    footer{margin-top:1.25rem;text-align:center;color:#475569;font-size:.9rem}
+    pre{background:#0b1220;color:#dbeafe;padding:1rem;border-radius:8px;overflow:auto}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <strong>Simple HTML Page</strong>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h1>Welcome!</h1>
+      <p class="lead">This is a minimal, single-file HTML page with small styling and a tiny bit of JavaScript. Use it as a starter template.</p>
+
+      <div class="row">
+        <div class="col">
+          <h3>Features</h3>
+          <ul>
+            <li>Responsive container</li>
+            <li>Card-style content area</li>
+            <li>Dark mode toggle (below)</li>
+          </ul>
+        </div>
+
+        <div class="col">
+          <h3>Try it</h3>
+          <p>Click the button to toggle dark mode. Open the file in your browser to preview.</p>
+          <button id="toggle">Toggle Dark Mode</button>
+        </div>
+      </div>
+
+      <h3 style="margin-top:1rem">Example code</h3>
+      <pre>&lt;button id="toggle"&gt;Toggle Dark Mode&lt;/button&gt;
+&lt;script&gt;/* small JS at bottom */&lt;/script&gt;</pre>
+    </section>
+
+    <footer>
+      <div class="card">Made with ♥ — edit this file and refresh to see changes.</div>
+    </footer>
+  </main>
+
+  <script>
+    // Small dark-mode toggle
+    const btn = document.getElementById('toggle');
+    btn.addEventListener('click', () => {
+      const root = document.documentElement;
+      const dark = root.style.getPropertyValue('--bg') === '#0b1220';
+      if (!dark) {
+        root.style.setProperty('--bg', '#0b1220');
+        root.style.setProperty('--card', '#071127');
+        root.style.setProperty('--text', '#e6eef6');
+        root.style.setProperty('--accent', '#06b6d4');
+      } else {
+        root.style.setProperty('--bg', '#f8fafc');
+        root.style.setProperty('--card', '#fff');
+        root.style.setProperty('--text', '#0f172a');
+        root.style.setProperty('--accent', '#0ea5a4');
+      }
+    });
+  </script>
+</body>
+</html>
